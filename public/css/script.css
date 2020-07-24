@@ -1,0 +1,83 @@
+.custom-scroll{
+    position: relative;
+    overflow: scroll;
+    width: auto;
+    height: 100%;
+}
+.custom-scroll::-webkit-scrollbar {
+    display: none;
+}
+.custom-scroll{
+    -ms-overflow-style: none;
+}
+a.icon.disabled, fieldset:disabled a.icon {
+    pointer-events: none;
+}
+
+.icon.disabled, .btn:disabled {
+    opacity: .65;
+}
+
+.table tr > td > a .count-label{
+position: absolute;
+top: 8px;
+right: 5px;
+width: 16px;
+height: 16px;
+line-height: 16px;
+font-size: .6rem;
+font-weight: 600;
+text-align: center;
+background: #484848;
+color: #ffffff;
+border-radius: 30px;
+}
+
+
+ .ck-button {
+     margin:4px;
+     background-color:#EFEFEF;
+     border-radius:4px;
+     border:1px solid #D0D0D0;
+     overflow:auto;
+     float:left;
+ }
+
+
+ .ck-button label {
+     float:left;
+     min-width: 90px;
+     margin-bottom: 0rem;
+     border-radius:4px;
+
+
+ }
+
+ .ck-button label span {
+     text-align:center;
+     display:block;
+     border-radius:4px;
+     padding: .375rem .75rem;
+
+ }
+ .ck-button:focus {
+        box-shadow: 0 0 0 0.2rem rgba(16, 140, 42, 0.2);
+        background-color: #267100;
+        border-color: #267100;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+ }
+
+ .ck-button label input[type=checkbox]{
+     position:absolute;
+     visibility: hidden;
+ }
+
+
+ .ck-button input:checked + span {
+     background-color: #2f8a00;
+     color:#fff;
+ }
+
+
+
+
