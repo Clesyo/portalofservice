@@ -45,6 +45,6 @@ class PermissionController extends Controller
         }
 
 
-        return Redirect::back()->with($notificaiton);
+        return Redirect::back()->with('message',$notificaiton);
     }
 }

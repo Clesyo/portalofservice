@@ -306,19 +306,20 @@
         <!-- Toastr -->
 <script src="{{asset('plugins/toastr/toastr.min.js')}}"></script>
 
-@if (Session::has('message'))
+@if (Session::has('notification'))
     <script>
-        var type = "{{ Session::get('alert-type') }}";
-        var title = "{{ Session::get('title') }}";
+        var type = "{{ Session::get(notification['alert-type']) }}";
+        var title = "{{ Session::get(notification['title']) }}";
+        var message = "{{ Session::get(notification['message']) }}";
 
         switch (type) {
             case 'success':
-                $(document).Toasts('create', {e
+                $(document).Toasts('create', {
                     title: title,
                     class: 'bg-'+type,
                     autohide: true,
                     delay: 4000,
-                    body: "{{ Session::get('message') }}"
+                    body: message
                 });
             break;
             case 'error':
@@ -327,7 +328,7 @@
                     class: 'bg-'+type,
                     autohide: true,
                     delay: 4000,
-                    body: "{{ Session::get('message') }}"
+                    body: message
                 });
 
             break;

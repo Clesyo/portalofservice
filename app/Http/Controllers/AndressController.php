@@ -15,7 +15,7 @@ class AndressController extends Controller
         $andresses = Andress::all();
         return view('andress.andress_index', compact('pages', 'andresses'));
     }
-    
+
     public function create()
     {
         $pages = ['Endereços','Novo'];
@@ -101,7 +101,7 @@ class AndressController extends Controller
             );
         }
 
-        return Redirect::to('company')->with($notification);
+        return Redirect::to('company')->with('message',$notification);
 
     }
 
@@ -159,6 +159,6 @@ class AndressController extends Controller
             );
         }
 
-        return Redirect::to('company')->with($notification);
+        return Redirect::to('company')->with('message',$notification);
     }
 }

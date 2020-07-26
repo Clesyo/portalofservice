@@ -50,7 +50,7 @@ class ServiceController extends Controller
 
         }
 
-        return Redirect::back()->with($notification);
+        return Redirect::back()->with('message',$notification);
     }
 
     public function update(Request $request, $id)
@@ -74,7 +74,7 @@ class ServiceController extends Controller
 
         }
 
-        return Redirect::back()->with($notification);
+        return Redirect::back()->with('message',$notification);
 
     }
 }

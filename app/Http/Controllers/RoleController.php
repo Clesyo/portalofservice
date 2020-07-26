@@ -83,6 +83,6 @@ class RoleController extends Controller
             ];
         }
 
-        return Redirect::to('settings/role')->with($notification);
+        return Redirect::to('settings/role')->with('notification',$notification);
     }
 }
