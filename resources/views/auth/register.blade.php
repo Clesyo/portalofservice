@@ -1,77 +1,84 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- CSRF Token -->
+     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Title -->
+		<title>My Portal Service Admin  - Registro</title>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+		<!-- *************
+			************ Common Css Files *************
+		************ -->
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+		<!-- Master CSS -->
+		<link rel="stylesheet" href="{{asset('css/main.css')}}" />
+</head>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+<body class="authentication">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <!-- Container start -->
+    <div class="container">
 
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+            <div class="row justify-content-md-center">
+                <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
+                    <div class="login-screen">
+                        <div class="login-box">
+                            <a href="#" class="login-logo">
+                                <img src="img/logo-dark.png" alt="Le Rouge Admin Dashboard" />
+                            </a>
+                            <h5>Bem vindo,<br />Crie uma conta para ter acesso.</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nome" />
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
+                            <div class="form-group">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" />
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="password"  class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password"/>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                    <input type="password" id="password-confirm" name="password_confirmation" class="form-control" placeholder="Conform Password" required autocomplete="new-password">
+                                </div>
+                                <small id="passwordHelpInline" class="text-muted">
+                                    A senha deve ter entre 8 e 20 caracteres.
+                                </small>
+                            </div>
+                            <div class="actions mb-4">
+                                <button type="submit" class="btn btn-primary">{{ __('Registrar') }}</button>
+                            </div>
+                            <hr>
+                            <div class="m-0">
+                                <span class="additional-link">Já tenho conta <a href="{{ route('login') }}" class="btn btn-dark">Login</a></span>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
+
     </div>
-</div>
-@endsection
+    <!-- Container end -->
+
+</body>
+</html>

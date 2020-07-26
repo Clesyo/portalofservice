@@ -42,12 +42,17 @@ Route::post('endereco/store', 'AndressController@store');
 Route::get('endereco/editar/{id}', 'AndressController@edit');
 Route::patch('endereco/update/{id}', 'AndressController@update');
 
+Route::get('settings/users','UserController@index');
+Route::post('settings/user/active/{id}','UserController@active');
+Route::post('settings/user/assign','UserController@assignRole');
+
 Route::get('settings/module','ModuleController@index');
 Route::get('settings/module/new','ModuleController@create');
 Route::post('settings/module/store','ModuleController@store');
 
 Route::get('settings/role','RoleController@index');
-Route::post('settings/role/new','RoleController@create');
+Route::get('settings/role/new','RoleController@create');
+Route::post('settings/role/store','RoleController@store');
 Route::get('settings/role/edit/{id}','RoleController@edit');
 Route::post('settings/role/update/{id}','RoleController@update');
 

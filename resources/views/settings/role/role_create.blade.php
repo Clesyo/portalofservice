@@ -33,7 +33,7 @@
     <div class="row gutters">
 
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <form action="{{ url('settings/role/new', []) }}" method="post">
+            <form action="{{ url('settings/role/store', []) }}" method="post">
                 @csrf
                 <div class="card">
                     <div class="card-header">

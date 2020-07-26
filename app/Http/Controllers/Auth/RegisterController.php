@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Keygen;
 
 class RegisterController extends Controller
 {
@@ -23,6 +24,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
 
     /**
      * Where to redirect users after registration.
@@ -64,10 +66,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $token = Keygen::alphanum(10)->prefix('CT-')->generate();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'token' => $token,
         ]);
     }
 }

@@ -35,7 +35,7 @@
         <!-- Bootstrap Select CSS -->
         <link rel="stylesheet" href="{{asset('plugins/bs-select/bs-select.css')}}"/>
          <!-- Toastr -->
-  <link rel="stylesheet" href="{{asset('plugins/toastr/toastr.min.css')}}">
+  <link rel="stylesheet" href="{{asset('plugins/jquery-toast/jquery.toast.min.css')}}">
 
         <script src="{{asset('js/jquery.min.js')}}"></script>
 
@@ -140,10 +140,16 @@
                         </li>
 
                         <li class="header-menu">Gerenciamento</li>
+                        <li>
+                            <a href="{{ url('settings/users', []) }}">
+                                <i class="icon-user1"></i>
+                                <span class="menu-text">Usuários</span>
+                            </a>
+                        </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="icon-settings1"></i>
-                                <span class="menu-text">Acessos</span>
+                                <span class="menu-text">Controle de Acessos</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
@@ -304,31 +310,33 @@
 		<!-- Main JS -->
         <script src="{{asset('js/main.js')}}"></script>
         <!-- Toastr -->
-<script src="{{asset('plugins/toastr/toastr.min.js')}}"></script>
+<script src="{{asset('plugins/jquery-toast/jquery.toast.min.js')}}"></script>
 
-@if (Session::has('notification'))
+@if (Session::has('message'))
     <script>
-        var type = "{{ Session::get(notification['alert-type']) }}";
-        var title = "{{ Session::get(notification['title']) }}";
-        var message = "{{ Session::get(notification['message']) }}";
+        var type = "{{ Session::get('alert-type') }}";
+        var title = "{{ Session::get('title') }}";
+        var message = "{{ Session::get('message') }}";
 
         switch (type) {
             case 'success':
-                $(document).Toasts('create', {
-                    title: title,
-                    class: 'bg-'+type,
-                    autohide: true,
-                    delay: 4000,
-                    body: message
+                $.toast({
+                    heading: title,
+                    showHideTransition: 'plain',
+                    position: 'top-right',
+                    hideAfter: 5000,
+                    text: message,
+                    icon: type,
                 });
             break;
             case 'error':
-                $(document).Toasts('create', {
-                    title: title,
-                    class: 'bg-'+type,
-                    autohide: true,
-                    delay: 4000,
-                    body: message
+                $.toast({
+                    heading: title,
+                    showHideTransition: 'plain',
+                    position: 'top-right',
+                    hideAfter: 4000,
+                    text: message,
+                    icon: type,
                 });
 
             break;
