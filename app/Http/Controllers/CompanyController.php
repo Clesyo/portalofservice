@@ -55,7 +55,7 @@ class CompanyController extends Controller
 
         }
 
-        return Redirect::redirect('empresa')->with('message',$notification);
+        return Redirect::redirect('empresa')->with('notification',$notification);
     }
 
     public function update(Request $request, $id)
@@ -78,6 +78,6 @@ class CompanyController extends Controller
             );
         }
 
-        return Redirect::redirect('empresa')->with('message',$notification);
+        return Redirect::redirect('empresa')->with('notification',$notification);
     }
 }

@@ -47,7 +47,7 @@ Route::get('settings/module/new','ModuleController@create');
 Route::post('settings/module/store','ModuleController@store');
 
 Route::get('settings/role','RoleController@index');
-Route::get('settings/role/new','RoleController@create');
+Route::post('settings/role/new','RoleController@create');
 Route::get('settings/role/edit/{id}','RoleController@edit');
 Route::post('settings/role/update/{id}','RoleController@update');
 
