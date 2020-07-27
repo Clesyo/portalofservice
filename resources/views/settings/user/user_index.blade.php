@@ -42,7 +42,7 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Lista de Funções</div>
+                    <div class="card-title">Lista de Usuários</div>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">

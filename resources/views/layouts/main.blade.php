@@ -127,6 +127,9 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
+                                        <a href="{{ url('categorias') }}">Categorias</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ url('empresa') }}">Empresa</a>
                                     </li>
                                     <li>

@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" name="company_id" value="{{ \App\Models\Company::where('user_id',Auth::user()->id)->first()->id }}">
+                    <input type="hidden" name="company_id" value="{{ \App\Models\Company::where('user_id', Auth::user()->id)->first()->id }}">
                     <div class="card-footer text-right ">
                         <button class="btn btn-primary">Gravar</button>
                     </div>

@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('send-mail-user','EmailController@emailUser');
+
 
 Route::get('empresa', 'CompanyController@index');
 Route::get('empresa/novo', 'CompanyController@create');
@@ -41,6 +43,10 @@ Route::get('endereco/novo/{empresa}', 'AndressController@createWithCompany');
 Route::post('endereco/store', 'AndressController@store');
 Route::get('endereco/editar/{id}', 'AndressController@edit');
 Route::patch('endereco/update/{id}', 'AndressController@update');
+
+Route::get('categorias','CategoryController@index');
+Route::post('category/store','CategoryController@store');
+Route::patch('category/update','CategoryController@update');
 
 Route::get('settings/users','UserController@index');
 Route::post('settings/user/active/{id}','UserController@active');
