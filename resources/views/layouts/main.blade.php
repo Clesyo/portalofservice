@@ -84,12 +84,6 @@
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="chat.html">
-                                <i class="icon-message-circle"></i>
-                                <span class="menu-text">Chat</span>
-                            </a>
-                        </li>
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="icon-calendar1"></i>
@@ -117,6 +111,12 @@
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li>
+                            <a href="{{ url('anuncios', []) }}">
+                                <i class="icon-message-circle"></i>
+                                <span class="menu-text">Anúncio</span>
+                            </a>
                         </li>
 
                         <li class="sidebar-dropdown">
