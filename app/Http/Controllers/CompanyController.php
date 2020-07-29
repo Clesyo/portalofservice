@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Andress;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -20,10 +21,8 @@ class CompanyController extends Controller
     function create()
     {
         $pages = ['Empresa','Novo'];
-
-
-
-        return view('company.company_create', compact('pages'));
+        $categories = Category::all();
+        return view('company.company_create', compact('pages', 'categories'));
     }
 
     public function edit($id)
@@ -36,6 +35,11 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $company = new Company();
+        $dados = $request->all();
+        $image = $request->file('image');
+        dd($image);
+        unset($dados['image']);
+        dd($dados);
 
         $company = $company::create($request->all());
 
@@ -55,7 +59,7 @@ class CompanyController extends Controller
 
         }
 
-        return Redirect::redirect('empresa')->with('notification',$notification);
+        return Redirect::to('empresa')->with($notification);
     }
 
     public function update(Request $request, $id)

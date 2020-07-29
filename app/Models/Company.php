@@ -8,7 +8,7 @@ class Company extends Model
 {
     //
     protected $fillable = ['name', 'cpf_cnpj', 'email', 'telephone', 'whatsapp',
-                            'status','user_id'];
+                            'status','user_id','category_id'];
 
     public function andress()
     {

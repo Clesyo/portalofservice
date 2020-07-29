@@ -51,7 +51,7 @@ Route::patch('category/update','CategoryController@update');
 Route::get('anuncios','AnnouncementController@index');
 Route::get('anuncio/novo','AnnouncementController@create');
 Route::get('anuncio/editar/{id}','AnnouncementController@edit');
-Route::get('anuncio/store','AnnouncementController@store');
+Route::post('anuncio/store','AnnouncementController@store');
 
 Route::get('settings/users','UserController@index');
 Route::post('settings/user/active/{id}','UserController@active');

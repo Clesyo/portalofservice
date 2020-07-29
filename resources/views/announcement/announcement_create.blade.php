@@ -38,7 +38,8 @@
                 <div class="card-title">Informação básicas</div>
             </div>
             <div class="card-body">
-                <form action="{{ url('url', []) }}" method="post" id="form-submit" enctype="multipart/form-data">
+                <form action="{{ url('anuncio/store', []) }}" method="post" id="form-submit" enctype="multipart/form-data">
+                    @csrf
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="form-group">
@@ -66,11 +67,14 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label for="">Selecione as imagens para seu anuncio:</label>
-                                <input type="file" class="form-control" name="images[]">
+                                <input type="file" class="form-control" name="images[]" multiple>
                             </div>
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="card-footer text-right">
+                <button type="submit" class="btn btn-primary" onclick="document.getElementById('form-submit').submit()">Gravar</button>
             </div>
         </div>
     </div>

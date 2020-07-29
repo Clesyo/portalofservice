@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="row gutters">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
                                 <div class="form-group">
                                     <label for="">Email</label>
                                     <input type="email" class="form-control" name="email">
@@ -71,6 +71,16 @@
                                 <div class="form-group">
                                     <label for="">Whatsapp</label>
                                     <input type="tel" class="form-control" name="whatsapp">
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                                <div class="form-group">
+                                    <label for="">Categoria</label>
+                                    <select class="form-control selectpicker" data-live-search="true" name="category_id" title="">
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->description }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
