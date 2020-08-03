@@ -8,4 +8,9 @@ class Announcement extends Model
 {
     //
     protected $fillable = ['note','company_id', 'status'];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

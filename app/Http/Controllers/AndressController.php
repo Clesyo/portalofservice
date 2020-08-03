@@ -101,7 +101,7 @@ class AndressController extends Controller
             );
         }
 
-        return Redirect::to('company')->with('notification',$notification);
+        return Redirect::to('empresa')->with('notification',$notification);
 
     }
 

@@ -46,9 +46,9 @@ class AnnouncementController extends Controller
 
         $images = $request->allFiles('images');
 
-        $nameCompany = Company::findOrFail($request->input('company_id'));
+        $nameCompany = Company::findOrFail($request->input('company_id'))->name;
         
-        dd($images);
+        //dd($images);
         
         if($announcement){
 
